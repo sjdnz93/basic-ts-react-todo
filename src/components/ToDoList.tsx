@@ -1,7 +1,12 @@
 import React from "react"
+import { Task } from "../App"
 
-export default function ToDoList(): JSX.Element {
+interface toDoListProps {
+  tasks: Task[]
+}
+
+export default function ToDoList({ tasks }: toDoListProps): JSX.Element {
   return (
-    <h2>This is where the added items will render</h2>
+    <h2>This is where the added tasks will render</h2>
   )
 } 

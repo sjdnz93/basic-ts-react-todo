@@ -1,7 +1,29 @@
 import React from "react"
 
-export default function ToDoListInputForm(): JSX.Element {
+interface ToDoListFormProps {
+  onAddTask: (task: string) => void
+}
+
+export default function ToDoListInputForm({ onAddTask }: ToDoListFormProps): JSX.Element {
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    onAddTask('make this work')
+    console.log('THE BUTTON IS WORKING')
+
+  }
+
+
+
+
+
+
+
   return (
-    <h3>Input form goes here</h3>
+    <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="New task"></input>
+      <button type="submit">Add Task</button>
+    </form>
+
   )
 }
