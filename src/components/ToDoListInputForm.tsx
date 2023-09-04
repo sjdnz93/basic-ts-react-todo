@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 
 interface ToDoListFormProps {
   onAddTask: (task: string) => void
@@ -6,10 +6,14 @@ interface ToDoListFormProps {
 
 export default function ToDoListInputForm({ onAddTask }: ToDoListFormProps): JSX.Element {
 
+  const taskRef = useRef<HTMLInputElement>(null)
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onAddTask('make this work')
-    console.log('THE BUTTON IS WORKING')
+    const taskVal = taskRef.current!.value
+    //console.log('TASKVAL', taskVal)
+    onAddTask(taskVal)
+    //console.log('THE BUTTON IS WORKING')
 
   }
 
@@ -21,7 +25,7 @@ export default function ToDoListInputForm({ onAddTask }: ToDoListFormProps): JSX
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="New task"></input>
+      <input type="text" placeholder="New task" ref={taskRef}></input>
       <button type="submit">Add Task</button>
     </form>
 
