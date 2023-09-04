@@ -8,6 +8,13 @@ interface toDoListProps {
 export default function ToDoList({ tasks }: toDoListProps): JSX.Element {
   console.log('TASKS BEING ADDED', tasks)
   return (
-    <h2>This is where the added tasks will render</h2>
+    <div>
+      <ul>
+        {tasks.map((task) => (
+          <li key={task.id}>{task.task}</li>
+        )
+        )}
+      </ul>
+    </div>
   )
 } 

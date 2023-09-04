@@ -11,9 +11,13 @@ export default function ToDoListInputForm({ onAddTask }: ToDoListFormProps): JSX
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const taskVal = taskRef.current!.value
-    //console.log('TASKVAL', taskVal)
-    onAddTask(taskVal)
-    //console.log('THE BUTTON IS WORKING')
+    if (taskVal) {
+      onAddTask(taskVal)
+      taskRef.current!.value = ''
+    } else {
+      window.alert('YOU NEED TO ADD A TASK')
+    }
+    
 
   }
 

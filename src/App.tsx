@@ -19,7 +19,7 @@ function App(): JSX.Element {
 
   return (
     <div>
-      <h1>Hello world!</h1>
+      <h1>Simon's basic React/TS todo list</h1>
 
       <ToDoList tasks={tasks}/>
       <ToDoListInputForm onAddTask={addTask}/>
